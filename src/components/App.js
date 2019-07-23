@@ -1,15 +1,35 @@
 import React, { Component, Fragment } from 'react';
 import { Header, Footer } from './Layouts';
 import Exercises from './Exercises';
+import { muscles, exercises } from '../Store';
 import '../App.css';
 
 class App extends Component {
+  state = {
+    exercises
+  }
+  getExercisesByMuscles() {
+    return Object.entries(
+      this.state.exercises.reduce((exercises, exercise) => {
+        const { muscles } = exercise;
+
+        exercises[muscles] = exercises[muscles] 
+          ? [...exercises[muscles], exercise]
+          : [exercise]
+        return exercises
+      }, {})
+    )
+  }
   render() {
-    return (
+    const exercises = this.getExercisesByMuscles();
+        return (
+      
       <Fragment>
         <Header/>
-          <Exercises/>
-        <Footer/>
+          <Exercises exercises={exercises}/>
+        <Footer
+          muscles = {muscles}
+        />
       </Fragment>
     );
   }
