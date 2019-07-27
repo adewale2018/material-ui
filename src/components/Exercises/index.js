@@ -25,7 +25,7 @@ export default ({
    <Grid item sm>
     <Paper style={styles.Paper}>
       {exercises.map(([group, exercises]) => 
-      !category || category == group
+      !category || category === group
       ?
       <Fragment key={group}>
         <Typography
