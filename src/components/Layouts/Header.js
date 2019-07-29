@@ -6,7 +6,7 @@ import CreateDialog from '../Exercises/Dialogs/Create';
 export default ({ muscles, onExerciseCreate }) => {
   return(
     <AppBar position="static">
-        <Toolbar>
+      <Toolbar>
         <Typography variant="h1" component="h2" color="inherit" style={{flex: 1}}>
           Exercises Database
         </Typography>
@@ -14,7 +14,7 @@ export default ({ muscles, onExerciseCreate }) => {
           onCreate={onExerciseCreate}
           muscles={muscles}
         />
-        </Toolbar>
-      </AppBar>
+      </Toolbar>
+    </AppBar>
   );
 }
